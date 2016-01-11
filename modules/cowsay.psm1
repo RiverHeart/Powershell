@@ -27,7 +27,7 @@ function cowsay() {
         [int] $LineMax = 50
     )
 
-    # Splits wrods based on Whitespace Regex.
+    # Splits words based on Whitespace Regex.
     $Words = $Text -split "\s"
 
     # Create an array with an empty string. Necessary to use "+=" the first time.
