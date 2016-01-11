@@ -9,7 +9,7 @@
 #  cowsay $Text
 #
 #   ___________________________________________________
-#  | We read Knuth so you don't have to. -- Tim       |
+#  | We read Knuth so you don't have to. -- Tim        |
 #  | Peters (explaining what the Python developers do  |
 #  | in their spare time)                              |
 #   ---------------------------------------------------
