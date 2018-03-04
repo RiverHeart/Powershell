@@ -28,6 +28,9 @@ function cowsay() {
         [Parameter(ParameterSetName="normal",
                    ValueFromPipeline=$False,
                    Position = 1)]
+        [Parameter(ParameterSetName="pipeline",
+                   ValueFromPipeline=$False,
+                   Position=0)]
         [int] $LineMax = 50
     )
 
