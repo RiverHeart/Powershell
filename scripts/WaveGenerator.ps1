@@ -19,29 +19,19 @@ function Get-FullPath
     Param
     (
         [Parameter(ParameterSetName="normal",
-                   Mandatory=$False,
-                   ValueFromPipeline=$false,
+                   Mandatory=$True,
                    Position=0)]
-        [Array]$Path,
-
         [Parameter(ParameterSetName="pipeline",
-                   Mandatory=$False,
-                   ValueFromPipeline=$true,
-                   Position=0)]
-        [String[]]$PipePath
+                   ValueFromPipeline=$True)]
+        [Array]$Path
     )
 
-    begin {
-        if ($PSCmdlet.ParameterSetName -eq 'pipeline') {
-            $PipeValue = $True
-        } else {
-            $PipeValue = $False
-        }
-    }
+    begin {}
+    
     # Pipeline values get processed sequentially. Arrays from regular input are not and require manual looping.
     process {
-        if ($PipeValue) {
-            $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPsPath($PipePath)
+        if ($PSCmdlet.ParameterSetName -eq 'pipeline') {
+            $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPsPath($Path)
         } else {
             foreach ($Item in $Path) {
                 $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPsPath($Item)
