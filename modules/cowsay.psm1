@@ -79,3 +79,24 @@ function cowsay() {
         `t      ||     ||"
     }
 }
+
+#.SYNOPSIS
+#
+#  Given a ### delimited file, get strings, sort randomly and return one.
+#  Doesn't make assumptions about where a default file might live.
+#
+#  Probably not the most performant thing in the world, especially on
+#  large files, but better than nothing.
+#
+#.EXAMPLE
+#
+#  (fortune "fortunes.txt") | cowsay
+function fortune() {
+    [CmdletBinding(DefaultParameterSetName="normal")]
+    Param(
+        [Parameter(ParameterSetName="normal",Position=0)]
+        [string] $Path
+    )
+
+    return (Get-Content $Path -Delimiter "###" | Sort {Get-Random} | select -First 1).TrimEnd("###").Trim()
+}
