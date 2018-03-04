@@ -19,50 +19,60 @@
 #    	        ||----w |
 #    	        ||     ||
 function cowsay() {
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName="normal")]
     Param(
-        [Parameter(ValueFromPipeline = $true, Position = 0)]
+        [Parameter(ParameterSetName="normal",Position = 0)]
+        [Parameter(ParameterSetName="pipeline",ValueFromPipeline=$True)]
         [string] $Text = "Moo...",
-        [Parameter(ValueFromPipeline = $true, Position = 1)]
+
+        [Parameter(ParameterSetName="normal",
+                   ValueFromPipeline=$False,
+                   Position = 1)]
         [int] $LineMax = 50
     )
 
-    # Splits words based on Whitespace Regex.
-    $Words = $Text -split "\s"
+    begin {}
+    process {
+        # Splits words based on Whitespace Regex.
+        $Words = $Text -split "\s"
 
-    # Create an array with an empty string. Necessary to use "+=" the first time.
-    $Lines = @('')
-    $i = 0
+        $sb = [System.Text.StringBuilder]::new()
+        $LineLength = 0
 
-    foreach ($Word in $Words) {
-        $Word = $Word + ' '
-        $NewLength = ($Lines[$i].length + $Word.length)
+        foreach ($Word in $Words) {
+            $Word = $Word + ' '
+            $LineLength += $Word.length
 
-        # Add word if resulting length doesn't exceed max line size.
-        if ($NewLength -lt $LineMax) {
-            $Lines[$i] += $Word
-        } else {
-            # Word did not fit in line. Add word to next line.
-            $Lines += $Word
-            ++$i
+            # Add word if resulting length doesn't exceed max line size.
+            if ($LineLength -lt $LineMax) {
+                [void]$sb.Append("$word")
+            } else {
+                # Word did not fit in line. Put it on a new line. 
+                # WARNING: Words longer than LineMax will overflow.
+                $LineLength = $Word.length
+                [void]$sb.Append("`n$Word")
+            }
         }
     }
+    end {
 
-    # [char] x * [int] y repeats the character y times
-    $TopBar    = ' ' + ('_' * ($LineMax + 1))
-    $BottomBar = ' ' + ('-' * ($LineMax + 1))
+        # [char] x * [int] y repeats the character y times
+        $TopBar    = ' ' + ('_' * ($LineMax + 1))
+        $BottomBar = ' ' + ('-' * ($LineMax + 1))
+        $Lines     = $sb.ToString() -split "`n"
 
-    write-host $TopBar
-    foreach ($Line in $Lines) {
-        $Line = $Line.padright($LineMax - 1)
-        write-host "| $Line |"
+        write-host $TopBar
+        foreach ($Line in $Lines) {
+            $Line = $Line.padright($LineMax - 1)
+            write-host "| $Line |"
+        }
+        write-host $BottomBar -NoNewLine
+
+        write-host "
+        `t\  ^__^
+        `t \ (oo)\______
+        `t   (__)\      )\/
+        `t      ||----w |
+        `t      ||     ||"
     }
-    write-host $BottomBar -NoNewLine
-
-    write-host "
-    `t\  ^__^
-    `t \ (oo)\______
-    `t   (__)\      )\/
-    `t      ||----w |
-    `t      ||     ||"
 }
