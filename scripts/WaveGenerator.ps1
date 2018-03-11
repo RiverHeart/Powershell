@@ -1,8 +1,11 @@
 # Requires -Version 5
 
+# Summary: Converted Dan Water's audio intro to Powershell. Generates a simple wave file and plays the sound from it.
 # Credit: Dan Water's "Intro to Audio Programming"
 # Link: https://blogs.msdn.microsoft.com/dawate/2009/06/22/intro-to-audio-programming-part-1-how-audio-data-is-represented/
-# Summary: Converted Dan Water's audio intro to Powershell. Generates a simple wave file and plays the sound from it.
+# Link: https://blogs.msdn.microsoft.com/dawate/2009/06/23/intro-to-audio-programming-part-2-demystifying-the-wav-format/
+# Link: https://blogs.msdn.microsoft.com/dawate/2009/06/24/intro-to-audio-programming-part-3-synthesizing-simple-wave-audio-using-c/
+# Link: https://blogs.msdn.microsoft.com/dawate/2009/06/25/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c/
 
 <#
 .Synopsis
