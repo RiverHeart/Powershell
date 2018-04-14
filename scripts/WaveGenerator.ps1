@@ -6,6 +6,13 @@
 # Link: https://blogs.msdn.microsoft.com/dawate/2009/06/23/intro-to-audio-programming-part-2-demystifying-the-wav-format/
 # Link: https://blogs.msdn.microsoft.com/dawate/2009/06/24/intro-to-audio-programming-part-3-synthesizing-simple-wave-audio-using-c/
 # Link: https://blogs.msdn.microsoft.com/dawate/2009/06/25/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c/
+#
+# Additional Reading Material
+# Link: https://blogs.msdn.microsoft.com/larryosterman/2004/10/26/what-is-audio-on-a-pc-anyway/
+# Link: https://blogs.msdn.microsoft.com/larryosterman/2004/10/28/whats-in-a-wav-file/
+# Link: https://blogs.msdn.microsoft.com/larryosterman/2007/01/10/how-long-is-a-wav-file/
+# Link: https://blogs.msdn.microsoft.com/larryosterman/2007/10/18/the-evolution-of-a-data-structure-the-waveformat/
+# Link: https://blogs.msdn.microsoft.com/larryosterman/2011/03/09/how-do-people-keep-coming-up-with-this-stuff-mspaint-as-an-audio-track/
 
 <#
 .Synopsis
