@@ -82,6 +82,8 @@ function cowsay() {
 
 #.SYNOPSIS
 #
+#  Tiny powershell script inspired by the Unix program Fortune, written by Ken Arnold.
+#
 #  Given a ### delimited file, get strings, sort randomly and return one.
 #  To run without specifying a filepath, your $profile should contain
 #  $env:fortune = "/path/to/fortune/file"
