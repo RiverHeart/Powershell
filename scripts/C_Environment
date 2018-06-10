@@ -1,4 +1,10 @@
-# Run after installing Visual C++ Build Tools Technical Preview 2015
+#.WARNING
+# It's been a while since I've run this. You might need to fiddle around with some things to get it to work on your system.
+#
+#.SYNOPSIS
+# Powershell script to setup environment variables for C/C++ compiling after installing Visual C++ Build Tools Technical Preview 2015
+# Intended to be a simple replacement for C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\vcvars64.bat
+#
 # Remove-Item Env:\include
 # Remove-Item Env:\lib
 
