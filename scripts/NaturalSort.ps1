@@ -42,6 +42,7 @@
  # FURTHER READING 
  # https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
  # http://www.davekoelle.com/alphanum.html
+ # http://www.davekoelle.com/files/AlphanumComparator.cs
  #>
 
 enum ChunkType { 
