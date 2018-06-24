@@ -38,6 +38,12 @@
  #
  #>
 
+<#
+ # FURTHER READING 
+ # https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
+ # http://www.davekoelle.com/alphanum.html
+ #>
+
 enum ChunkType { 
     Alphanumeric = 0
     Numeric = 1 
