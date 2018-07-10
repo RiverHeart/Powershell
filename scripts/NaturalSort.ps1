@@ -7,14 +7,10 @@
  #
  # The Alphanum Algorithm is discussed at http://www.DaveKoelle.com
  #
- # Based on the Java implementation of Dave Koelle's Alphanum algorithm.
- # Contributed by Jonathan Ruckwood <jonathan.ruckwood@gmail.com>
- #
- # Adapted by Dominik Hurnaus <dominik.hurnaus@gmail.com> to
- #   - correctly sort words where one word starts with another word
- #   - have slightly better performance
- #
- # Powershell adaptation of C# implementation by Riverheart.
+ # Based on Jonathan Ruckwood's <jonathan.ruckwood@gmail.com> C# implementation
+ # (with improvements by Dominik Hurnaus <dominik.hurnaus@gmail.com>)
+ # of Dave Koelle's Alphanum algorithm.
+ # Contributed by Riverheart.
  #
  # Released under the MIT License - https://opensource.org/licenses/MIT
  #
