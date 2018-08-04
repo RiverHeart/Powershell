@@ -7,10 +7,14 @@
  #
  # The Alphanum Algorithm is discussed at http://www.DaveKoelle.com
  #
- # Based on Jonathan Ruckwood's <jonathan.ruckwood@gmail.com> C# implementation
- # (with improvements by Dominik Hurnaus <dominik.hurnaus@gmail.com>)
- # of Dave Koelle's Alphanum algorithm.
- # Contributed by Riverheart.
+ # Based on the Java implementation of Dave Koelle's Alphanum algorithm.
+ # Contributed by Jonathan Ruckwood <jonathan.ruckwood@gmail.com>
+ #
+ # Adapted by Dominik Hurnaus <dominik.hurnaus@gmail.com> to
+ #   - correctly sort words where one word starts with another word
+ #   - have slightly better performance
+ #
+ # Powershell adaptation of C# implementation by Riverheart.
  #
  # Released under the MIT License - https://opensource.org/licenses/MIT
  #
@@ -34,20 +38,42 @@
  #
  #>
 
-<#
- # FURTHER READING 
- # https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
- # http://www.davekoelle.com/alphanum.html
- # http://www.davekoelle.com/files/AlphanumComparator.cs
- #>
-
 enum ChunkType { 
     Alphanumeric = 0
     Numeric = 1 
 }
 
-Class AlphanumComparator : System.Collections.IComparer 
+enum CompareResult {
+    Second = -1
+    Equal  =  0
+    First  =  1
+}
+
+<#
+ # The following is a Singleton implementation of the AlphanumComparer
+ # The benefit is that you can call Sort-Natural without worrying about
+ # instantiating an AlphanumComparer object or recreating an instance on
+ # every call to Sort-Natural.
+ #
+ # An IComparer object implements the Compare method which is called
+ # naturally by [Array]::Sort
+ #
+ # Reading material:
+ # https://msdn.microsoft.com/en-us/library/system.collections.comparer.compare(v=vs.110).aspx
+ #>
+class AlphanumComparer : System.Collections.IComparer 
 {
+
+    static [AlphanumComparer] $Instance
+    
+    static [AlphanumComparer] GetInstance() 
+    {
+        if ([AlphanumComparer]::Instance -eq $null) 
+        {
+            [AlphanumComparer]::Instance = [AlphanumComparer]::new()
+        }
+        return [AlphanumComparer]::Instance 
+    }
 
     [bool] InChunk([char] $char, [char] $otherChar) 
     {
@@ -66,6 +92,14 @@ Class AlphanumComparator : System.Collections.IComparer
         return $True
     }
 
+    <#
+     # Implements the Compare method from IComparer which looks at two objects and returns
+     # a numeric value.
+     #
+     # -1: Second value is greater.
+     #  0: Both values equal
+     #  1: First value is greater.
+     #>
     [int] Compare([Object] $x, [Object] $y)
     {
         $s1 = $x -as [String]
@@ -73,9 +107,10 @@ Class AlphanumComparator : System.Collections.IComparer
 
         if ($s1 -eq $null -or $s2 -eq $null)
         {
-            return 0
+            return [CompareResult]::Equal
         }
 
+        # Counters
         $thisMarker = 0; $thisNumericChunk = 0
         $thatMarker = 0; $thatNumericChunk = 0
 
@@ -83,11 +118,11 @@ Class AlphanumComparator : System.Collections.IComparer
         {
             if ($thisMarker -ge $s1.Length)
             {
-                return -1
+                return [CompareResult]::Second
             }
             elseif ($thatMarker -ge $s2.Length)
             {
-                return 1
+                return [CompareResult]::First
             }
             [char] $thisChar = $s1[$thisMarker]
             [char] $thatChar = $s2[$thatMarker]
@@ -119,7 +154,7 @@ Class AlphanumComparator : System.Collections.IComparer
                 }
             }
 
-            $result = 0
+            $result = [CompareResult]::Equal
 
             # If both chunks contain numeric characters, sort them numerically
             if ([char]::IsDigit($thisChunk[0]) -and [char]::IsDigit($thatChunk[0]))
@@ -129,12 +164,12 @@ Class AlphanumComparator : System.Collections.IComparer
 
                 if ($thisNumericChunk -lt $thatNumericChunk)
                 {
-                    $result = -1
+                    $result = [CompareResult]::Second
                 }
 
                 if ($thisNumericChunk -gt $thatNumericChunk)
                 {
-                    $result = 1
+                    $result = [CompareResult]::First
                 }
             }
             else
@@ -142,22 +177,80 @@ Class AlphanumComparator : System.Collections.IComparer
                 $result = $thisChunk.ToString().CompareTo($thatChunk.ToString())
             }
 
-            if ($result -ne 0)
+            if ($result -ne [CompareResult]::Equal)
             {
                 return $result
             }
         }
 
-        return 0
+        return [CompareResult]::Equal
+    }
+}
+
+<#
+.Synopsis
+   Applies natural sort to an array.
+.Description
+   Uses the custom comparer [AlphanumComparer] to return a natural sort of an array.
+.EXAMPLE
+   PS C:\> Sort-Natural @('a',10,100,20)
+   10
+   20
+   100
+   a
+
+   Regular usage of natural sort.
+.EXAMPLE
+   PS C:\> @('a',10,100,20) | Sort-Natural -Descending
+   a
+   100
+   20
+   10
+
+   Natural Sort using pipeline and descending switch.
+#>
+function Sort-Natural
+{
+    [CmdletBinding()]
+    [Alias()]
+    [OutputType([Array])]
+    Param
+    (
+        # An array of values.
+        [Parameter(Mandatory=$true,
+                   ValueFromPipeline=$true,
+                   Position=0)]
+        $InputObject,
+
+        [switch] $Descending
+    )
+
+    Begin
+    {
+        $Collection = @()    # Copy of the input array.
+    }
+    Process
+    {
+        # Regular params will just be copied. Pipelined input will be accumulated.
+        $Collection += $InputObject
+    }
+    End 
+    {
+        [Array]::Sort($Collection, [AlphanumComparer]::GetInstance())
+        if ($Descending) {
+            [Array]::Reverse($Collection)
+        }
+        return $Collection
     }
 }
 
 $Example  = @("filename 1", "filename 10", "filename 2", "filename 20",
-              1, "a", "1a", "a1", 200, 2, 10, 300, 200, 100, "1b", "a1b", "a1200", "a13", 3)
-$Comparer = [AlphanumComparator]::new()
-Measure-Command {
-    [Array]::Sort($Example, $Comparer)
-}
+              1, "a", "1a", "a1", 200, 2, 10, 300, 200, 100, "1b", 
+              "a1b", "a1200", "a13", 3)
 
+
+Measure-Command {
+    $Result = Sort-Natural $Example
+}
 Write-Host "Natural Sort:"
-$Example
+$Result
