@@ -1,0 +1,117 @@
+"The Master has failed more times than the Beginner has even tried."
+-- Stephen McCranie
+###
+"I invented the term Object-Oriented, and I can tell you I did not have C++ in mind."
+-- Alan Kay
+###
+"I have a rock garden. Last week, three of them died."
+-- Richard Diran
+###
+"Programming is like sex. One mistake and you have to support it for the rest of your life."
+-- Michael Sinz
+###
+"There are 10 kinds of people in the world - those who understand binary and those who don't."
+-- Colin Sharpe
+###
+"There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. And the other way is to make it so complicated that there are no obvious deficiencies."
+-- C.A.R Hoare
+###
+Some people program with rocks. Others use a hammer, I prefer a contractors'-grade pneumatic nail gun with a belt-fed magazine. Have fun "becoming one with the metal", I've got real work to do. 
+-- Said many times in response to "VB programmers are not real programmers"
+###
+"Always code as if the guy who ends up maintaining your code wil be a violent psychopath who knows where you live."
+-- John F. Woods
+###
+"When we don't undertsand a process, we fall into magical thinking about results."
+-- Jef Raskin
+###
+"Low-level programming is good for the programmer's soul."
+-- John Carmack
+###
+"It should be noted that no ethically-trained software engineer would ever consent to write a DestroyBaghdad procedure. Basic professional ethics would instead require him to write a DestroyCity procedure, to which Baghdad could be given as a parameter."
+-- Nathaniel Borenstein
+###
+"Debugging is twice as hard as writing the program, so if you write the program as cleverly as you can, by definition, you won't be clever enough to debug it." 
+-- [Brian] Kernighan's Law
+###
+"Debugging is anticpiated with distaste, performed with reluctance, and bragged about forever."
+-- Dan Kaminsky
+###
+"Our first reaction to any comrade, any other person passionate about and interested in building things with computers, any human crazy and masochistic enough to try to expand the capabilities of these absurd machines, should be empathy and love." Brett Butler
+###
+"In all affairs, it's a healthy thing now and then to hang a question mark on the things you have long taken for granted."
+-- Bertrand Russell
+###
+"The belief that complex systems require armies of designers and programmers is wrong. A system that is not understood in its entirety, or at least to a significant degree of detail by a single individual, should probably not be built."
+-- Niklaus Wirth
+###
+It does not require a majority to prevail, but rather an irate, tireless minority keen to set brush fires in people's mind.
+###
+We read Knuth so you don't have to. Tim Peters (explaining what the Python developers do in their spare time)
+###
+In the beginning, the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.
+-- Douglas Adams
+###
+Education is not about the filling of a bucket but the lighting of a fire!
+-- William Butler Yeats
+###
+One's mind, once stretched by a new idea, never regains it's original dimensions.
+-- Oliver Wendell Holmes
+###
+"Beware those who would deny you Knowledge, For in their hearts they dream themselves your Master."
+-- Commisioner Pravin Lal, Alpha Centauri (Firaxis Games)
+###
+Doctor bing questioned on the witness stand.
+
+Lawyer: Did you take his pulse?
+Doctor: No.
+Lawyer: Did you check his breathing?
+Doctor: No.
+--insert more of this kind of questioning
+Lawyer: Then how could you be sure he was actually dead?
+Doctor: Well his brain is in a jar on my desk but I suppose he could be practicing law somewhere.
+###
+"I prefer the most unfair peace than the most righteous war."
+-- Cicero
+###
+If a plan isn't flexible it isn't realistic.
+###
+"It is difficult to get a man to understand something when his salary depends upon his not understanding it."
+-- Upton Sinclair
+###
+Shift to the left, Shift to the right, Mask in, Mask out, BYTE, BYTE, BYTE !!!
+###
+Prose should be a like a miniskirt: long enough to cover the subject, but short enough to be interesting.
+###
+Our business in life is not to succeed but to continue to fail in high spirits.
+-- Robert Louis Stevenson
+###
+"A complex system that works is invariably found to have evolved from a simple system that worked."
+-- John Gall, _Systemantics_
+###
+Once I saw this guy on a bridge about to jump.
+I said, "Don't do it!" He said, "Nobody loves me." I said, "God loves you. Do you believe in God?" He said, "Yes."
+I said, "Are you a Christian or a Jew?" He said, "Christian."
+I said, "Me, too! Protestant or Catholic?" He said, "Protestant."
+I said, "Me, too! What franchise?" He said, "Baptist."
+I said, "Me, too! Northern Baptist or Southern Baptist?" He said, "Northern Baptist."
+I said, "Me, too! Northern Conservative Baptist or Northern Liberal Baptist?" He said, "Northern Conservaive Baptist."
+I said, "Me, too! Northern Conservative Baptist Great Lakes Region or Northern Liberal Baptist Eastern Region?" He said, "Northern Conservaive Baptist Great Lakes Region."
+I said, "Me, too! Northern Conservative Baptist Great Lakes Region  Council of 1879 or Northern Liberal Baptist Great Lakes Region Council of 1912?" He said, "Northern Conservative Baptist Great Lakes Region Council of 1912."
+I said, "Die, heretic!" And I pushed him over.
+-- Emo Phillips
+###
+Perfectionism is not the same thing as striving to be your best. Perfectionism is the belief that if we live perfect, look perfect, and act perfect, we can minimize or avoid the pain of blame, judgement, and shame. It's a shield. It's a twenty-ton shield that we lug around thinking it will protect us when, in fact, it's the thing that's really preventing us from flight.
+-- Brene Brown, "The Gifts of Imperfection"
+###
+It's not always possible to be the best, but it's always possible to improve your own performance.
+-- Sir Jackie Stewart
+###
+Nan-in, a Japanese master during the Meiji era (1868-1912), received a university professor who came to inquire about Zen. Nan-in served tea. He poured his visitor's cup full, and then kept on pouring. The professor watched the overflow until he no longer could restrain himself. "It is overfull. No more will go in!" "Like this cup", Nan-in said, "you are full of your own opinions and speculations. How can I show you Zen unless you first empty your cup?"
+###
+It's hard to lead a calvalry charge if you think you look funny on a horse.
+-- Adlai Stevenson
+###
+A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.
+-- Robert Heinlein, "Time Enough for Love"
+###

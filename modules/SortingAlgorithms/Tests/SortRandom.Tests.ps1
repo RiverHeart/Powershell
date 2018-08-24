@@ -1,0 +1,56 @@
+﻿# Boilerplate
+$projectRoot = Resolve-Path "$PSScriptRoot\.."
+$moduleRoot = Split-Path (Resolve-Path "$projectRoot\*\*.psd1")
+$moduleName = Split-Path $moduleRoot -leaf
+Import-Module (Join-Path $moduleRoot "$moduleName.psm1") -Force
+
+# Test Data
+$Array = @(
+    '1000X Radonius Maximus'
+    '10X Radonius'
+    '200X Radonius'
+    '20X Radonius'
+    '20X Radonius Prime'
+    '30X Radonius'
+    '40X Radonius'
+    'Allegia 50 Clasteron'
+    'Allegia 500 Clasteron'
+    'Allegia 50B Clasteron'
+    'Allegia 51 Clasteron'
+    'Allegia 6R Clasteron'
+    'Alpha 100'
+    'Alpha 2'
+    'Alpha 200'
+    'Alpha 2A'
+    'Alpha 2A-8000'
+    'Alpha 2A-900'
+    'Callisto Morphamax'
+    'Callisto Morphamax 500'
+    'Callisto Morphamax 5000'
+    'Callisto Morphamax 600'
+    'Callisto Morphamax 6000 SE'
+    'Callisto Morphamax 6000 SE2'
+    'Callisto Morphamax 700'
+    'Callisto Morphamax 7000'
+    'Xiph Xlater 10000'
+    'Xiph Xlater 2000'
+    'Xiph Xlater 300'
+    'Xiph Xlater 40'
+    'Xiph Xlater 5'
+    'Xiph Xlater 50'
+    'Xiph Xlater 500'
+    'Xiph Xlater 5000'
+    'Xiph Xlater 58')
+
+$CopyArray = $Array.Clone()
+
+Describe "Sort-Random" {
+
+    It "can shuffle an array" {
+        Sort-Random $CopyArray | Should -Not -Be $Array
+    }
+
+    It "can shuffle an array using the pipeline" {
+        $CopyArray | Sort-Random | Should -Not -Be $Array
+    }
+}
