@@ -4,11 +4,15 @@
 
 [C](https://github.com/RiverHeart/Powershell/tree/master/C)
 
-Experimental C Development on Windows using Visual Studio Build Tools and Powershell.
+Hacky Powershell script to setup Windows for C Development using Visual Studio Build Tools.
 
-[Cowsay](https://github.com/RiverHeart/Powershell/tree/master/cowsay)
+[Cowsay](https://github.com/RiverHeart/Powershell/tree/master/modules/cowsay)
 
 My (simple) take on the Unix classic Cowsay.
+
+[Sorting Algorithms Module](https://github.com/RiverHeart/Powershell/tree/master/modules/SortingAlgorithms)
+
+Sorting algorithms implemented in Powershell.
 
 [Scripts](https://github.com/RiverHeart/Powershell/tree/master/scripts)
 
